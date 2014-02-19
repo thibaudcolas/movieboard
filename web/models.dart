@@ -12,6 +12,14 @@ class Movie {
    @reflectable bool favorite;
    @reflectable String tag;
 
+
+   static final Map _comparators = {
+     "default": (Movie a, Movie b) => 0,
+     "title": (Movie a, Movie b) => a.title.compareTo(b.title),
+     "vote": (Movie a, Movie b) => a.voteAverage > b.voteAverage,
+     "favorite": (Movie a, Movie b) => a.favorite
+   };
+
    Movie.sample() {
      id = 4;
      title = "Flop in the flag...";
@@ -21,7 +29,7 @@ class Movie {
      voteCount = 2;
      tag = "upcoming";
    }
-   
+
    Movie.fromJSON(Map<String, Object> json) {
      id=json['id'];
      title=json['title'];
@@ -31,4 +39,8 @@ class Movie {
      voteCount=json['vote_count'];
      tag=json['tag'];
    }
+
+   bool matches(String term) => title.toLowerCase().contains(term);
+
+   static getComparator(String field) => _comparators[field];
  }
