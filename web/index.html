@@ -3,22 +3,16 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Sample app</title>
+    <title>DFS Movieboard</title>
     <link rel="stylesheet" href="../common/movie_board.css">
     
-    <!-- import the click-counter -->
-    <link rel="import" href="clickcounter.html">
+    <link rel="import" href="poster.html">
     <script type="application/dart">export 'package:polymer/init.dart';</script>
     <script src="packages/browser/dart.js"></script>
   </head>
   <body>
-    <h1>Movie Board</h1>
-    
-    <p>Welcome to Dart Flight School !</p>
-    
-    <div id="sample_container_id">
-      <click-counter count="5"></click-counter>
-    </div>
-
-  </body>
+    <movie-poster></movie-poster>
+    <movie-poster></movie-poster>
+    <movie-poster></movie-poster>
+</body>
 </html>
