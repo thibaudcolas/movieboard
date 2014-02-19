@@ -1,0 +1,9 @@
+name: movieboard
+description: A sample Polymer application
+dependencies:
+  polymer: 0.9.4
+  route: any
+transformers:
+- polymer:
+    entry_points:
+    - web/index.html
