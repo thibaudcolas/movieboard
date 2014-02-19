@@ -1,10 +1,11 @@
 library movie.posters;
 
 import 'package:polymer/polymer.dart';
+import 'dart:html';
 
 import 'models.dart';
 import 'services.dart';
-import 'dart:html';
+import 'utils.dart';
 
 
 @CustomTag('movie-posters')
@@ -30,6 +31,7 @@ class Posters extends PolymerElement {
     var field = target.dataset['field'];
     sortAscending = field == sortField ? !sortAscending : true;
     sortField = field;
+    applySelected(target, 'gb');
   }
 
   sortBy(String field, bool asc) => (Iterable<Movie> ms) {

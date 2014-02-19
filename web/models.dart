@@ -16,8 +16,8 @@ class Movie {
    static final Map _comparators = {
      "default": (Movie a, Movie b) => 0,
      "title": (Movie a, Movie b) => a.title.compareTo(b.title),
-     "vote": (Movie a, Movie b) => a.voteAverage > b.voteAverage,
-     "favorite": (Movie a, Movie b) => a.favorite
+     "vote": (Movie a, Movie b) => a.voteAverage.compareTo(b.voteAverage),
+     "favorite": (Movie a, Movie b) => a.favorite == b.favorite ? 0 : a.favorite ? 1 : -1,
    };
 
    Movie.sample() {
