@@ -10,7 +10,7 @@
     <a href="#" class="gb gb-right" on-click="{{sort}}" data-field="favorite">&#x2665;</a>
   </div>
   <div class="content">
-    <template repeat="{{ m in movies | filter(searchTerm) | sortBy(sortField, sortAscending) }}">
+    <template repeat="{{ m in movies | filter(searchFilter) | sortBy(sortField, sortAscending) }}">
       <movie-poster movie="{{ m }}"></movie-poster>
     </template>
   </div>

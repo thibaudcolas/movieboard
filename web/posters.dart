@@ -2,6 +2,7 @@ library movie.posters;
 
 import 'package:polymer/polymer.dart';
 import 'dart:html';
+import 'dart:async';
 
 import 'models.dart';
 import 'services.dart';
@@ -13,6 +14,7 @@ class Posters extends PolymerElement {
 
   @observable List<Movie> movies;
   @observable String searchTerm = '';
+  @observable String searchFilter = '';
   @observable String sortField = 'default';
   @observable bool sortAscending = true;
 
@@ -20,6 +22,12 @@ class Posters extends PolymerElement {
 
   Posters.created() : super.created() {
     moviesService.getAllMovies().then((List ms) => movies = ms);
+  }
+
+  Timer _searchTimer;
+  searchTermChanged(String oldValue) {
+    if (_searchTimer != null) _searchTimer.cancel();
+    _searchTimer = new Timer(new Duration(milliseconds: 400), () => searchFilter = searchTerm);
   }
 
   filter(String term) {
